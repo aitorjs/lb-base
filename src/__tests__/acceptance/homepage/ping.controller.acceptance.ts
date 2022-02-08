@@ -1,9 +1,9 @@
 import {Client, expect} from '@loopback/testlab';
-import {BtcExplorerApplication} from '../../..';
+import {LbBaseApplication} from '../../..';
 import {setupApplication, stopApplication} from '../test-helper';
 
 describe('PingController', () => {
-  let app: BtcExplorerApplication;
+  let app: LbBaseApplication;
   let client: Client;
 
   before('setupApplication', async () => {
