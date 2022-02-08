@@ -27,7 +27,7 @@ import {SECURITY_SCHEME_SPEC} from './utils/security-spec';
 require('dotenv').config();
 export {ApplicationConfig};
 
-export class BtcExplorerApplication extends BootMixin(
+export class LbBaseApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {

@@ -5,7 +5,7 @@ import {
 } from '@loopback/testlab';
 import {MigrationRepository} from 'loopback4-migration/dist/repositories';
 import request from 'supertest';
-import {BtcExplorerApplication} from '../..';
+import {LbBaseApplication} from '../..';
 import {UserCredentialsRepository, UserRepository} from '../../repositories';
 
 export async function setupApplication(): Promise<AppWithClient> {
@@ -18,7 +18,7 @@ export async function setupApplication(): Promise<AppWithClient> {
     port: testPort,
   });
 
-  const app = new BtcExplorerApplication({
+  const app = new LbBaseApplication({
     rest: restConfig,
   });
 
@@ -32,7 +32,7 @@ export async function setupApplication(): Promise<AppWithClient> {
 }
 
 export async function stopApplication(
-  app: BtcExplorerApplication,
+  app: LbBaseApplication,
 ): Promise<boolean> {
   await app.stop();
 
@@ -43,7 +43,7 @@ export async function stopApplication(
 }
 
 async function deleteAllDocuments(
-  app: BtcExplorerApplication,
+  app: LbBaseApplication,
 ): Promise<boolean> {
   try {
     const userRepo = await app.getRepository(UserRepository);
@@ -64,7 +64,7 @@ async function deleteAllDocuments(
 }
 
 export interface AppWithClient {
-  app: BtcExplorerApplication;
+  app: LbBaseApplication;
   client: Client;
   // client: Client;
 }

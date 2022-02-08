@@ -1,8 +1,8 @@
 import {Client, expect} from '@loopback/testlab';
-import {BtcExplorerApplication} from '../../../index';
+import {LbBaseApplication} from '../../../index';
 import {setupApplication, stopApplication} from '../test-helper';
 describe('POST /users/login', () => {
-  let app: BtcExplorerApplication;
+  let app: LbBaseApplication;
   let client: Client;
   const randomNum = Math.floor(Math.random() * 10000000000 + 1);
   const url = '/users/login';
