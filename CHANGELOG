@@ -1,4 +1,8 @@
 # CHANGELOG
+## v0.0.3 (08/02/2022)
+- Mainly dependencies updated.
+- Tested with authentication-jwt component. Its use is rejected because swagger-ui always put the [lock](https://github.com/loopbackio/loopback-next/blob/master/extensions/authentication-jwt/src/jwt-authentication-component.ts#L49).
+
 ## v0.0.2 (04/09/2021)
 - Basic administration of users with JWT, groups (firstAdmin, admin, user, member), acceptance tests, docker, CI and envirtoments (prod, dev, test).
 
