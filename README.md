@@ -1,4 +1,4 @@
-# lb4-base
+# lb-base
 ## Use
 
 - Install docker and docker-compose on your machine.
@@ -6,14 +6,17 @@
 - Open the envirotment you need: prod, dev, testing.
 - Go to http://localhost:3000 on prod and dev.
 
-## Envirotments
+## Environments
 ### Prod(uction).
+- docker network create back
 - npm run start:prod:docker
 
 ### Dev(elopment).
+- docker network create back
 - npm run start:dev:docker
 
-### Testing. Functional tests
+### Testing. Functional tests.
+- docker network create back
 - npm run start:test:docker
 
 
@@ -34,7 +37,7 @@ By default, dependencies were installed when this application was generated.
 # Functional tests
 
 - docker exec -it [API_CONTAINERID/ API_CONTAINERNAME] npm run test
-(docker exec -it lb4-base_api_1 npm run test)
+(docker exec -it lb-base_api npm run test)
 
 Whenever dependencies in `package.json` are changed, run the following command:
 

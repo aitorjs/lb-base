@@ -1,6 +1,6 @@
 import {
   AuthenticationComponent,
-  registerAuthenticationStrategy,
+  registerAuthenticationStrategy
 } from '@loopback/authentication';
 import {AuthorizationComponent} from '@loopback/authorization';
 import {BootMixin} from '@loopback/boot';
@@ -9,7 +9,7 @@ import {RepositoryMixin} from '@loopback/repository';
 import {OpenApiSpec, RestApplication} from '@loopback/rest';
 import {
   RestExplorerBindings,
-  RestExplorerComponent,
+  RestExplorerComponent
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {MigrationBindings, MigrationComponent} from 'loopback4-migration';
@@ -20,9 +20,8 @@ import {
   PasswordHasherBindings,
   TokenServiceBindings,
   TokenServiceConstants,
-  UserServiceBindings,
+  UserServiceBindings
 } from './keys';
-import {MySequence} from './sequence';
 import {BcryptHasher, JWTService, MyUserService} from './services';
 import {SECURITY_SCHEME_SPEC} from './utils/security-spec';
 require('dotenv').config();
@@ -35,8 +34,9 @@ export class BtcExplorerApplication extends BootMixin(
     super(options);
 
     this.setUpBindings();
+
     // Set up the custom sequence
-    this.sequence(MySequence);
+    // this.sequence(MySequence);
 
     // Set up default home page
     this.static('/', path.join(__dirname, '../public'));

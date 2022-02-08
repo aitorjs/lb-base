@@ -18,11 +18,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download code
-        run: git clone --branch development https://github.com/aitorjs/lb4-base/
+        run: git clone --branch development https://github.com/aitorjs/lb4-base/ lb-base
 
       - name: Create env file
         run: |
-          cd lb4-base/
+          cd lb-base/
           touch .env
           echo "ADMIN_EMAIL='root@email.com'" >> .env
           echo "ADMIN_PASS='passpass1'" >> .env
@@ -30,11 +30,11 @@ jobs:
 
       - name: Up test envirotment
         run: |
-          cd lb4-base/
+          cd lb-base/
           docker network create back
           docker-compose up -d
 
       - name: Testing
         run: |
-          cd lb4-base/
-          docker exec lb4-base_api_1 npm run test
+          cd lb-base/
+          docker exec lb-base_api npm run test
