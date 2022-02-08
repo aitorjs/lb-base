@@ -37,4 +37,5 @@ jobs:
       - name: Testing
         run: |
           cd lb-base/
+          docker ps
           docker exec lb-base_api npm run test
