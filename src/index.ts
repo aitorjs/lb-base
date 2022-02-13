@@ -1,9 +1,9 @@
-import {ApplicationConfig, BtcExplorerApplication} from './application';
+import {ApplicationConfig, LbBaseApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new BtcExplorerApplication(options);
+  const app = new LbBaseApplication(options);
   await app.boot();
   await app.migrateSchema();
   await app.start();

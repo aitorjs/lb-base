@@ -1,9 +1,9 @@
 import {Client} from '@loopback/testlab';
-import {BtcExplorerApplication} from '../../..';
+import {LbBaseApplication} from '../../..';
 import {setupApplication, stopApplication} from '../test-helper';
 
 describe('HomePage', () => {
-  let app: BtcExplorerApplication;
+  let app: LbBaseApplication;
   let client: Client;
 
   before('setupApplication', async () => {

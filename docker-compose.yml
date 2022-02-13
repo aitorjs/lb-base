@@ -9,7 +9,7 @@ services:
       - back
     restart: always
     tty: true
-    container_name: lb4-base_mongo_1
+    container_name: lb-base_mongo
 
   api:
     build: ./
@@ -21,7 +21,7 @@ services:
       - back
     restart: always
     tty: true
-    container_name: lb4-base_api_1
+    container_name: lb-base_api
 
 volumes:
   db_data:

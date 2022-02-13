@@ -1,5 +1,5 @@
 import {Client} from '@loopback/testlab';
-import {BtcExplorerApplication} from '../../../index';
+import {LbBaseApplication} from '../../../index';
 import {setupApplication, stopApplication} from '../test-helper';
 
 export declare type AdminToken = {
@@ -8,7 +8,7 @@ export declare type AdminToken = {
 };
 
 describe('POST /users/changeRole', () => {
-  let app: BtcExplorerApplication;
+  let app: LbBaseApplication;
   let client: Client;
   const url = '/users/changeRole';
   const firstAdminToken: AdminToken = {token: '', userId: ''};
