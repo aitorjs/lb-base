@@ -2,6 +2,7 @@ import {
   AuthenticationComponent,
   registerAuthenticationStrategy
 } from '@loopback/authentication';
+import {JWTAuthenticationComponent, RefreshTokenServiceBindings, UserServiceBindings} from '@loopback/authentication-jwt';
 import {AuthorizationComponent} from '@loopback/authorization';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig, createBindingFromClass} from '@loopback/core';
@@ -19,11 +20,11 @@ import {MongoDataSource} from './datasources';
 import {
   PasswordHasherBindings,
   TokenServiceBindings,
-  TokenServiceConstants,
-  UserServiceBindings
+  TokenServiceConstants
 } from './keys';
 import {BcryptHasher, JWTService, MyUserService} from './services';
 import {SECURITY_SCHEME_SPEC} from './utils/security-spec';
+
 require('dotenv').config();
 export {ApplicationConfig};
 
@@ -34,6 +35,12 @@ export class LbBaseApplication extends BootMixin(
     super(options);
 
     this.setUpBindings();
+
+    this.component(JWTAuthenticationComponent);
+    // Bind datasource for user
+    this.dataSource(MongoDataSource, UserServiceBindings.DATASOURCE_NAME);
+    // Bind datasource for refresh token
+    this.dataSource(MongoDataSource, RefreshTokenServiceBindings.DATASOURCE_NAME);
 
     // Set up the custom sequence
     // this.sequence(MySequence);
@@ -117,5 +124,9 @@ export class LbBaseApplication extends BootMixin(
 
     // this.bind('repositories.UserRepository').toClass(UserRepository);
     // this.bind('datasources.mongo').toClass(MongoDataSource);
+
+    this.bind(MigrationBindings.CONFIG).to({
+      dataSourceName: MongoDataSource.dataSourceName,
+    });
   }
 }
