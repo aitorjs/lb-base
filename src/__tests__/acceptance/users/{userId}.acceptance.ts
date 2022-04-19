@@ -59,7 +59,7 @@ describe('GET /users/{userId}', () => {
     expect(response.body.email).equal(user.email);
   });
 
-  it(' Fails with user role valid token', async () => {
+  it('Fails with user role valid token', async () => {
     const response =
       '{"error":{"statusCode":403,"name":"Error","message":"Access denied"}}';
     await client
