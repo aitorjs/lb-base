@@ -12,4 +12,6 @@ RUN npm install
 
 COPY --chown=node . .
 
+RUN cd node_modules/@loopback/authentication-jwt && npm run build && cd .. && cd ..
+
 RUN npm run build
